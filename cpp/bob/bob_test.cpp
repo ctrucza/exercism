@@ -42,7 +42,6 @@ BOOST_AUTO_TEST_CASE(only_numbers)
     BOOST_REQUIRE_EQUAL("Whatever.", bob::hey("1, 2, 3"));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(question_with_only_numbers)
 {
     BOOST_REQUIRE_EQUAL("Sure.", bob::hey("4?"));
@@ -73,6 +72,7 @@ BOOST_AUTO_TEST_CASE(silence)
     BOOST_REQUIRE_EQUAL("Fine. Be that way!", bob::hey(""));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(prolonged_silence)
 {
     BOOST_REQUIRE_EQUAL("Fine. Be that way!", bob::hey("   "));
