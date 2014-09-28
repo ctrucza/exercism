@@ -6,7 +6,7 @@ using namespace std;
 class bob
 {
 public:
-    static string hey(string sentence)
+    static string hey(const string& sentence)
     {
         if (silence(sentence))
             return "Fine. Be that way!";
@@ -17,7 +17,7 @@ public:
         return "Whatever.";
     };
 private:
-    static bool shouting(string sentence)
+    static bool shouting(const string& sentence)
     {
         bool contains_alphanumeric = false;
         for (auto c : sentence)
@@ -32,12 +32,12 @@ private:
         return contains_alphanumeric;
     }
 
-    static bool question(string sentence)
+    static bool question(const string& sentence)
     {
         return *sentence.rbegin() == '?';
     }
 
-    static bool silence(string sentence)
+    static bool silence(const string& sentence)
     {
         return (trim(sentence) == "");
 
