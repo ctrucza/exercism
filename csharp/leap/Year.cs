@@ -11,6 +11,9 @@
             if (year % 400 == 0)
                 return true;
             return false;
+
+            //return DivisibleBy4(year) && (!DivisibeBy100(year) || DivisibleBy400(year));
+
         }
     }
 }
