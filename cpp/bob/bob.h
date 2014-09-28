@@ -16,12 +16,17 @@ public:
 private:
     static bool shouting(string sentence)
     {
+        bool contains_alphanumeric = false;
         for (auto c : sentence)
         {
-            if (isalpha(c) && !isupper(c))
-                return false;
+            if (isalpha(c))
+            {
+                contains_alphanumeric = true;
+                if (islower(c))
+                    return false;
+            }
         }
-        return true;
+        return contains_alphanumeric;
     }
 
     static bool question(string sentence)

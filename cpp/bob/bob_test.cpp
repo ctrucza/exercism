@@ -17,7 +17,6 @@ BOOST_AUTO_TEST_CASE(asking_a_question)
     BOOST_REQUIRE_EQUAL("Sure.", bob::hey("Does this cryogenic chamber make me look fat?"));
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(talking_forcefully)
 {
     BOOST_REQUIRE_EQUAL("Whatever.", bob::hey("Let's go make out behind the gym!"));
@@ -43,6 +42,7 @@ BOOST_AUTO_TEST_CASE(only_numbers)
     BOOST_REQUIRE_EQUAL("Whatever.", bob::hey("1, 2, 3"));
 }
 
+#if defined(EXERCISM_RUN_ALL_TESTS)
 BOOST_AUTO_TEST_CASE(question_with_only_numbers)
 {
     BOOST_REQUIRE_EQUAL("Sure.", bob::hey("4?"));
