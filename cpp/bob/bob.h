@@ -16,7 +16,7 @@ private:
     {
         for (auto c : sentence)
         {
-            if (!isupper(c))
+            if (isalpha(c) && !isupper(c))
                 return false;
         }
         return true;
