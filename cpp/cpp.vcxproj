@@ -76,6 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bob\bob.cpp" />
     <ClCompile Include="bob\bob_test.cpp" />
   </ItemGroup>
   <ItemGroup>
