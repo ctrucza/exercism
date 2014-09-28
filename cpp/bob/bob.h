@@ -9,6 +9,8 @@ public:
     {
         if (shouting(sentence))
             return "Whoa, chill out!";
+        if (question(sentence))
+            return "Sure.";
         return "Whatever.";
     };
 private:
@@ -20,5 +22,10 @@ private:
                 return false;
         }
         return true;
+    }
+
+    static bool question(string sentence)
+    {
+        return *sentence.rbegin() == '?';
     }
 };
