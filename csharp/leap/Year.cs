@@ -4,16 +4,21 @@
     {
         public static bool IsLeap(int year)
         {
-            if (year % 4 != 0)
+            if (!DivisibleBy(year, 4))
                 return false;
-            if (year % 100 != 0)
+
+            if (!DivisibleBy(year, 100))
                 return true;
-            if (year % 400 == 0)
+
+            if (DivisibleBy(year, 400))
                 return true;
+
             return false;
+        }
 
-            //return DivisibleBy4(year) && (!DivisibeBy100(year) || DivisibleBy400(year));
-
+        private static bool DivisibleBy(int year, int divisor)
+        {
+            return year % divisor == 0;
         }
     }
 }
