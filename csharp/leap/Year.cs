@@ -1,24 +1,26 @@
-﻿namespace Leap
+﻿using System;
+
+namespace Leap
 {
     public class Year
     {
         public static bool IsLeap(int year)
         {
-            if (!DivisibleBy(year, 4))
-                return false;
+            Func<int, bool> DivisibleBy = n => (year % n == 0);
 
-            if (!DivisibleBy(year, 100))
-                return true;
+            if (DivisibleBy(4))
+            {
+                if (DivisibleBy(100))
+                {
+                    if (DivisibleBy(400))
+                        return true;
 
-            if (DivisibleBy(year, 400))
+                    return false;
+                }
                 return true;
+            }
 
             return false;
-        }
-
-        private static bool DivisibleBy(int year, int divisor)
-        {
-            return year % divisor == 0;
         }
     }
 }
