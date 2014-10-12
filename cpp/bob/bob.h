@@ -2,6 +2,7 @@
 #include <cctype>
 #include <sstream>
 #include <algorithm>
+#include <boost/algorithm/string/trim.hpp>
 
 using namespace std;
 
@@ -32,11 +33,11 @@ private:
 
     static bool question(const string& sentence)
     {
-        return *sentence.rbegin() == '?';
+        return boost::algorithm::trim_copy(sentence).back() == '?';
     }
 
     static bool silence(const string& sentence)
     {
-        return all_of(sentence.begin(), sentence.end(), isblank);
+        return boost::algorithm::trim_copy(sentence).length() == 0;
     }
 };
