@@ -1,6 +1,8 @@
 #include <string>
-#include <ctype.h>
+#include <cctype>
 #include <sstream>
+#include <algorithm>
+
 using namespace std;
 
 class bob
@@ -16,19 +18,15 @@ public:
             return "Sure.";
         return "Whatever.";
     };
+
 private:
     static bool shouting(const string& sentence)
     {
-        bool contains_alphanumeric = false;
-        for (auto c : sentence)
-        {
-            if (isalpha(c))
-            {
-                contains_alphanumeric = true;
-                if (islower(c))
-                    return false;
-            }
-        }
+        bool contains_alphanumeric = any_of(sentence.begin(), sentence.end(), isalpha);
+        bool contains_lowercase = any_of(sentence.begin(), sentence.end(), islower);
+
+        if (contains_lowercase)
+            return false;
         return contains_alphanumeric;
     }
 
@@ -39,16 +37,6 @@ private:
 
     static bool silence(const string& sentence)
     {
-        return (trim(sentence) == "");
-
-    }
-
-    static string trim(const string& str)
-    {
-        string word;
-        stringstream stream(str);
-        stream >> word;
-
-        return word;
+        return all_of(sentence.begin(), sentence.end(), isblank);
     }
 };
